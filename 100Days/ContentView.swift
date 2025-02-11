@@ -42,6 +42,12 @@ struct ContentView: View {
 
 struct HomeView: View {
     let videos: [Video]
+    let texts = [
+        "I loved Kendrick's halftime show!",
+        "Taylor Swift and Travis Kelce love song",
+        "I need songs like Champagne Coast!",
+        "Juice WRLD summer 2025!"
+    ]
     
     @State private var selectedIndex = 0 // Track the selected index for snapping
     
@@ -49,7 +55,7 @@ struct HomeView: View {
         ScrollViewReader { proxy in // For scroll snapping
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack(spacing: 0) {
-                    ForEach(videos.indices, id: \.self) { index in
+                    ForEach(videos.indices, id: \ .self) { index in
                         VideoPlayerView(videoURL: videos[index].url)
                             .frame(height: 300) // Set fixed height for each video
                             .id(index) // Give each video a unique identifier for scrolling
@@ -58,6 +64,14 @@ struct HomeView: View {
                                     selectedIndex = index
                                 }
                             }
+                        
+                        // Large text box between videos with random text
+                        Text(texts.randomElement() ?? "Default text")
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 150)
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
+                            .padding()
                     }
                 }
                 .onChange(of: selectedIndex) { newIndex in
@@ -91,12 +105,11 @@ struct VideoPlayerView: View {
                     player = nil
                 }
                 .onTapGesture {
-                    if isPlaying {
+                    if player?.timeControlStatus == .playing {
                         player?.pause()
                     } else {
                         player?.play()
                     }
-                    isPlaying.toggle()
                 }
         }
     }

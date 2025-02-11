@@ -3,8 +3,8 @@ import SwiftUI
 struct ProfileView: View {
     @State private var username: String = "USERNAME" // Default username
     @State private var bio: String = "This is a short bio." // Default bio text
-    @State private var rankings: String = "Ranked #1 in SwiftUI" // Default ranking text
-    @State private var previousPosts: String = "Post 1: SwiftUI Basics\nPost 2: Advanced SwiftUI Topics" // Default previous posts
+    @State private var rankings: String = "Ranked 1st in Most Reviews this week!" // Default ranking text
+    @State private var previousPosts: String = "Post 1: Why kendrick is better than drake\nPost 2: I love bladee!!" // Default previous posts
 
     var body: some View {
         VStack {
