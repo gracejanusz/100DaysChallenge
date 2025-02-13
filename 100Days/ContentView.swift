@@ -55,8 +55,6 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-<<<<<<< HEAD
-<<<<<<< HEAD
             VStack {
                 HStack {
                     Spacer()
@@ -83,7 +81,6 @@ struct HomeView: View {
                                         if selectedIndex != index {
                                             selectedIndex = index
                                         }
-=======
             ScrollViewReader { proxy in
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVStack(spacing: 0) {
@@ -94,8 +91,6 @@ struct HomeView: View {
                                 .onAppear {
                                     if selectedIndex != videos.firstIndex(where: { $0.id == video.id }) {
                                         selectedIndex = videos.firstIndex(where: { $0.id == video.id }) ?? 0
->>>>>>> ee1e72f80661429fd0cecf69ee9c4fea75cfa4af
-=======
             ScrollViewReader { proxy in
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVStack(spacing: 0) {
@@ -106,14 +101,6 @@ struct HomeView: View {
                                 .onAppear {
                                     if selectedIndex != index {
                                         selectedIndex = index
->>>>>>> parent of 9105c20 (notification bell)
-                                    }
-                                }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 9105c20 (notification bell)
                             
                             // Large text box between videos with random text
                             NavigationLink(destination: PostView()) {
@@ -124,12 +111,8 @@ struct HomeView: View {
                                     .cornerRadius(10)
                                     .padding()
                                     .foregroundColor(.black)
-<<<<<<< HEAD
                                     .accessibilityLabel("Random post text") // Added accessibility label
                                     .accessibilityHint("This is a random text post between videos.") // Optional
->>>>>>> ee1e72f80661429fd0cecf69ee9c4fea75cfa4af
-=======
->>>>>>> parent of 9105c20 (notification bell)
                             }
                         }
                     }
