@@ -3,14 +3,14 @@ import AVKit
 
 struct Video: Identifiable {
     let id = UUID()
-    let url: URL
+    let url: String
 }
 
 struct ContentView: View {
     let videos = [
-        Video(url: URL(string: "https://www.w3schools.com/html/mov_bbb.mp4")!),
-        Video(url: URL(string: "https://www.w3schools.com/html/movie.mp4")!),
-        Video(url: URL(string: "https://www.w3schools.com/html/mov_bbb.mp4")!)
+        Video(url: "https://www.w3schools.com/html/mov_bbb.mp4"),
+        Video(url: "https://www.w3schools.com/html/movie.mp4"),
+        Video(url: "https://www.w3schools.com/html/mov_bbb.mp4")
     ]
     
     var body: some View {
@@ -26,7 +26,7 @@ struct ContentView: View {
                         Image(systemName: "magnifyingglass")
                         Text("Search")
                     }
-                UploadView()
+                Text("Upload")
                     .tabItem {
                         Image(systemName: "plus.app.fill")
                         Text("Upload")
@@ -51,12 +51,10 @@ struct HomeView: View {
         "Juice WRLD summer 2025!"
     ]
     
-    @State private var selectedIndex = 0 // Track the selected index for snapping
+    @State private var selectedIndex = 0
     
     var body: some View {
         NavigationStack {
-<<<<<<< HEAD
-<<<<<<< HEAD
             VStack {
                 HStack {
                     Spacer()
@@ -83,59 +81,23 @@ struct HomeView: View {
                                         if selectedIndex != index {
                                             selectedIndex = index
                                         }
-=======
-            ScrollViewReader { proxy in
-                ScrollView(.vertical, showsIndicators: false) {
-                    LazyVStack(spacing: 0) {
-                        ForEach(videos) { video in
-                            VideoPlayerView(videoURL: video.url)
-                                .frame(height: 300)
-                                .id(video.id) // Use `video.id` for proper identification
-                                .onAppear {
-                                    if selectedIndex != videos.firstIndex(where: { $0.id == video.id }) {
-                                        selectedIndex = videos.firstIndex(where: { $0.id == video.id }) ?? 0
->>>>>>> ee1e72f80661429fd0cecf69ee9c4fea75cfa4af
-=======
-            ScrollViewReader { proxy in
-                ScrollView(.vertical, showsIndicators: false) {
-                    LazyVStack(spacing: 0) {
-                        ForEach(videos.indices, id: \.self) { index in
-                            VideoPlayerView(videoURL: videos[index].url)
-                                .frame(height: 300)
-                                .id(index)
-                                .onAppear {
-                                    if selectedIndex != index {
-                                        selectedIndex = index
->>>>>>> parent of 9105c20 (notification bell)
                                     }
+                                
+                                NavigationLink(destination: PostView()) {
+                                    Text(texts.randomElement() ?? "Default text")
+                                        .frame(maxWidth: .infinity)
+                                        .frame(height: 150)
+                                        .background(Color.gray.opacity(0.2))
+                                        .cornerRadius(10)
+                                        .padding()
+                                        .foregroundColor(.black)
                                 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 9105c20 (notification bell)
-                            
-                            // Large text box between videos with random text
-                            NavigationLink(destination: PostView()) {
-                                Text(texts.randomElement() ?? "Default text")
-                                    .frame(maxWidth: .infinity)
-                                    .frame(height: 150)
-                                    .background(Color.gray.opacity(0.2))
-                                    .cornerRadius(10)
-                                    .padding()
-                                    .foregroundColor(.black)
-<<<<<<< HEAD
-                                    .accessibilityLabel("Random post text") // Added accessibility label
-                                    .accessibilityHint("This is a random text post between videos.") // Optional
->>>>>>> ee1e72f80661429fd0cecf69ee9c4fea75cfa4af
-=======
->>>>>>> parent of 9105c20 (notification bell)
                             }
                         }
-                    }
-                    .onChange(of: selectedIndex) { newIndex in
-                        withAnimation {
-                            proxy.scrollTo(newIndex, anchor: .center)
+                        .onChange(of: selectedIndex) { newIndex in
+                            withAnimation {
+                                proxy.scrollTo(newIndex, anchor: .center)
+                            }
                         }
                     }
                 }
@@ -145,8 +107,10 @@ struct HomeView: View {
     }
 }
 
+
+
 struct VideoPlayerView: View {
-    let videoURL: URL
+    let videoURL: String
     @State private var player: AVPlayer?
     
     var body: some View {
@@ -169,23 +133,17 @@ struct VideoPlayerView: View {
                             player.play()
                         }
                     }
-                    .accessibilityLabel("Video player for \(videoURL.lastPathComponent)") // Accessibility label
-                    .accessibilityHint("Tap to play or pause the video.") // Accessibility hint
-                    .accessibilityElement() // Mark this element as accessible for VoiceOver
             } else {
-                ProgressView("Loading video...") // Show loading indicator while video is initializing
+                ProgressView() // Show loading indicator while video is initializing
                     .frame(height: 300)
                     .onAppear {
-                        // Initialize player once
-                        player = AVPlayer(url: videoURL)
+                        player = AVPlayer(url: URL(string: videoURL)!)
                     }
-                    .accessibilityLabel("Loading video...") // Added loading accessibility label
-                    .accessibilityHint("This video is currently loading.") // Loading hint
-                    .accessibilityElement() // Mark as accessible during loading
             }
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -4,11 +4,10 @@
 //
 //  Created by grace janusz on 2/10/25.
 //
+
 import SwiftUI
 
 struct PostView: View {
-    var post: Post // Accept a Post object
-
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             // User Information
@@ -16,7 +15,7 @@ struct PostView: View {
                 Image(systemName: "person.circle.fill")
                     .resizable()
                     .frame(width: 40, height: 40)
-                Text(post.username)
+                Text("USERNAME")
                     .font(.headline)
                 Spacer()
             }
@@ -24,15 +23,15 @@ struct PostView: View {
 
             // Song Information
             VStack(alignment: .leading) {
-                Text(post.songTitle)
+                Text("SONG TITLE")
                     .font(.title3)
                     .bold()
-                Text(post.artist)
+                Text("ARTIST")
                     .font(.subheadline)
             }
             .padding(.horizontal)
 
-            // Image Placeholder (using the post's image)
+            // Image Placeholder
             Rectangle()
                 .fill(Color.gray.opacity(0.3))
                 .frame(height: 200)
@@ -41,7 +40,7 @@ struct PostView: View {
 
             // Ranking/Scale System
             HStack {
-                ForEach(0..<post.ranking) { _ in
+                ForEach(0..<5) { _ in
                     Image(systemName: "music.note")
                         .foregroundColor(.blue)
                 }
@@ -50,7 +49,7 @@ struct PostView: View {
             .padding(.horizontal)
 
             // Time, Date, and Comments
-            Text(post.time)
+            Text("Time Date")
                 .font(.caption)
                 .foregroundColor(.gray)
                 .padding(.horizontal)
@@ -74,17 +73,6 @@ struct PostView: View {
 
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
-        // Create a sample Post object for the preview
-        let samplePost = Post(
-            username: "Grace Janusz",
-            songTitle: "Song Title Example",
-            artist: "Artist Name",
-            image: "album_art.png", // This would be the actual image name or URL
-            ranking: 4,
-            time: "Feb 10, 2025 5:00 PM",
-            comments: "Great track!"
-        )
-        
-        PostView(post: samplePost)
+        PostView()
     }
 }
