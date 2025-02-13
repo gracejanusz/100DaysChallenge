@@ -51,10 +51,11 @@ struct HomeView: View {
         "Juice WRLD summer 2025!"
     ]
     
-    @State private var selectedIndex = 0
+    @State private var selectedIndex = 0 // Track the selected index for snapping
     
     var body: some View {
         NavigationStack {
+<<<<<<< HEAD
 <<<<<<< HEAD
             VStack {
                 HStack {
@@ -94,19 +95,25 @@ struct HomeView: View {
                                     if selectedIndex != videos.firstIndex(where: { $0.id == video.id }) {
                                         selectedIndex = videos.firstIndex(where: { $0.id == video.id }) ?? 0
 >>>>>>> ee1e72f80661429fd0cecf69ee9c4fea75cfa4af
+=======
+            ScrollViewReader { proxy in
+                ScrollView(.vertical, showsIndicators: false) {
+                    LazyVStack(spacing: 0) {
+                        ForEach(videos.indices, id: \.self) { index in
+                            VideoPlayerView(videoURL: videos[index].url)
+                                .frame(height: 300)
+                                .id(index)
+                                .onAppear {
+                                    if selectedIndex != index {
+                                        selectedIndex = index
+>>>>>>> parent of 9105c20 (notification bell)
                                     }
-                                
-                                NavigationLink(destination: PostView()) {
-                                    Text(texts.randomElement() ?? "Default text")
-                                        .frame(maxWidth: .infinity)
-                                        .frame(height: 150)
-                                        .background(Color.gray.opacity(0.2))
-                                        .cornerRadius(10)
-                                        .padding()
-                                        .foregroundColor(.black)
                                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 9105c20 (notification bell)
                             
                             // Large text box between videos with random text
                             NavigationLink(destination: PostView()) {
@@ -117,15 +124,18 @@ struct HomeView: View {
                                     .cornerRadius(10)
                                     .padding()
                                     .foregroundColor(.black)
+<<<<<<< HEAD
                                     .accessibilityLabel("Random post text") // Added accessibility label
                                     .accessibilityHint("This is a random text post between videos.") // Optional
 >>>>>>> ee1e72f80661429fd0cecf69ee9c4fea75cfa4af
+=======
+>>>>>>> parent of 9105c20 (notification bell)
                             }
                         }
-                        .onChange(of: selectedIndex) { newIndex in
-                            withAnimation {
-                                proxy.scrollTo(newIndex, anchor: .center)
-                            }
+                    }
+                    .onChange(of: selectedIndex) { newIndex in
+                        withAnimation {
+                            proxy.scrollTo(newIndex, anchor: .center)
                         }
                     }
                 }
@@ -134,8 +144,6 @@ struct HomeView: View {
         }
     }
 }
-
-
 
 struct VideoPlayerView: View {
     let videoURL: URL
