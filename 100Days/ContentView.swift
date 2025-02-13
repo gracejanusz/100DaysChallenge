@@ -51,38 +51,53 @@ struct HomeView: View {
         "Juice WRLD summer 2025!"
     ]
     
-    @State private var selectedIndex = 0 // Track the selected index for snapping
+    @State private var selectedIndex = 0
     
     var body: some View {
         NavigationStack {
-            ScrollViewReader { proxy in
-                ScrollView(.vertical, showsIndicators: false) {
-                    LazyVStack(spacing: 0) {
-                        ForEach(videos.indices, id: \.self) { index in
-                            VideoPlayerView(videoURL: videos[index].url)
-                                .frame(height: 300)
-                                .id(index)
-                                .onAppear {
-                                    if selectedIndex != index {
-                                        selectedIndex = index
+            VStack {
+                HStack {
+                    Spacer()
+                    VStack { // Wrap bell in VStack to push it down
+                        Spacer()
+                            .frame(height: 70)
+                        NavigationLink(destination: NotificationsView()) {
+                            Image(systemName: "bell.fill")
+                                .font(.title2)
+                                .padding(.trailing)
+                        }
+                        .padding(.bottom, 5) // Move bell lower
+                    }                }
+                .background(Color.white)
+                
+                ScrollViewReader { proxy in
+                    ScrollView(.vertical, showsIndicators: false) {
+                        LazyVStack(spacing: 0) {
+                            ForEach(videos.indices, id: \.self) { index in
+                                VideoPlayerView(videoURL: videos[index].url)
+                                    .frame(height: 300)
+                                    .id(index)
+                                    .onAppear {
+                                        if selectedIndex != index {
+                                            selectedIndex = index
+                                        }
                                     }
+                                
+                                NavigationLink(destination: PostView()) {
+                                    Text(texts.randomElement() ?? "Default text")
+                                        .frame(maxWidth: .infinity)
+                                        .frame(height: 150)
+                                        .background(Color.gray.opacity(0.2))
+                                        .cornerRadius(10)
+                                        .padding()
+                                        .foregroundColor(.black)
                                 }
-                            
-                            // Large text box between videos with random text
-                            NavigationLink(destination: PostView()) {
-                                Text(texts.randomElement() ?? "Default text")
-                                    .frame(maxWidth: .infinity)
-                                    .frame(height: 150)
-                                    .background(Color.gray.opacity(0.2))
-                                    .cornerRadius(10)
-                                    .padding()
-                                    .foregroundColor(.black)
                             }
                         }
-                    }
-                    .onChange(of: selectedIndex) { newIndex in
-                        withAnimation {
-                            proxy.scrollTo(newIndex, anchor: .center)
+                        .onChange(of: selectedIndex) { newIndex in
+                            withAnimation {
+                                proxy.scrollTo(newIndex, anchor: .center)
+                            }
                         }
                     }
                 }
@@ -91,6 +106,8 @@ struct HomeView: View {
         }
     }
 }
+
+
 
 struct VideoPlayerView: View {
     let videoURL: String

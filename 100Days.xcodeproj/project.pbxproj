@@ -17,6 +17,7 @@
 		2D3B82C92D5A6672007158C7 /* _00DaysUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3B82C82D5A6672007158C7 /* _00DaysUITestsLaunchTests.swift */; };
 		2D3B82D62D5A7DA8007158C7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3B82D52D5A7DA8007158C7 /* ProfileView.swift */; };
 		2D6CC4F42D5ADBBA00C4E983 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6CC4F32D5ADBBA00C4E983 /* PostView.swift */; };
+		7DABB5532D5D827C0015FBFD /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DABB5522D5D82640015FBFD /* NotificationsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		2D3B82C82D5A6672007158C7 /* _00DaysUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _00DaysUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2D3B82D52D5A7DA8007158C7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2D6CC4F32D5ADBBA00C4E983 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		7DABB5522D5D82640015FBFD /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		2D3B82A72D5A6671007158C7 /* 100Days */ = {
 			isa = PBXGroup;
 			children = (
+				7DABB5522D5D82640015FBFD /* NotificationsView.swift */,
 				2D3B82A82D5A6671007158C7 /* _100DaysApp.swift */,
 				2D3B82AA2D5A6671007158C7 /* ContentView.swift */,
 				2D3B82D52D5A7DA8007158C7 /* ProfileView.swift */,
@@ -273,6 +276,7 @@
 				2D3B82AD2D5A6671007158C7 /* Item.swift in Sources */,
 				2D6CC4F42D5ADBBA00C4E983 /* PostView.swift in Sources */,
 				2D3B82A92D5A6671007158C7 /* _100DaysApp.swift in Sources */,
+				7DABB5532D5D827C0015FBFD /* NotificationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
