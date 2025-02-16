@@ -13,29 +13,47 @@ struct ContentView: View {
         Video(url: "https://www.w3schools.com/html/mov_bbb.mp4")
     ]
     
+    let userProfile = UserProfile(
+        username: "JohnDoe",
+        bio: "Music lover, tech enthusiast.",
+        rankings: "Ranked 1st in Most Reviews this week!"
+    )
+    
+    @State private var selectedTab = 0
+    
     var body: some View {
         NavigationStack {
-            TabView {
+            TabView(selection: $selectedTab) {
                 HomeView(videos: videos)
                     .tabItem {
                         Image(systemName: "house.fill")
                         Text("Home")
                     }
-                Text("Search")
+                    .tag(0)
+                
+                SearchView()
                     .tabItem {
                         Image(systemName: "magnifyingglass")
                         Text("Search")
                     }
-                Text("Upload")
+                    .tag(1)
+                
+                Upload()  // Link UploadView to Upload tab
                     .tabItem {
                         Image(systemName: "plus.app.fill")
                         Text("Upload")
                     }
-                ProfileView()
+                    .tag(2)
+                
+                ProfileView(username: userProfile.username, bio: userProfile.bio, rankings: userProfile.rankings)
                     .tabItem {
                         Image(systemName: "person.fill")
                         Text("Profile")
                     }
+                    .tag(3)
+            }
+            .onChange(of: selectedTab) { newTab in
+                // Handle tab change logic if necessary
             }
         }
         .edgesIgnoringSafeArea(.all)
@@ -108,7 +126,6 @@ struct HomeView: View {
 }
 
 
-
 struct VideoPlayerView: View {
     let videoURL: String
     @State private var player: AVPlayer?
@@ -134,7 +151,7 @@ struct VideoPlayerView: View {
                         }
                     }
             } else {
-                ProgressView() // Show loading indicator while video is initializing
+                ProgressView()
                     .frame(height: 300)
                     .onAppear {
                         player = AVPlayer(url: URL(string: videoURL)!)
@@ -142,6 +159,12 @@ struct VideoPlayerView: View {
             }
         }
     }
+}
+
+struct UserProfile {
+    let username: String
+    let bio: String
+    let rankings: String
 }
 
 

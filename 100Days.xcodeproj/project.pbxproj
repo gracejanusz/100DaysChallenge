@@ -17,15 +17,10 @@
 		2D3B82C92D5A6672007158C7 /* _00DaysUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3B82C82D5A6672007158C7 /* _00DaysUITestsLaunchTests.swift */; };
 		2D3B82D62D5A7DA8007158C7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3B82D52D5A7DA8007158C7 /* ProfileView.swift */; };
 		2D6CC4F42D5ADBBA00C4E983 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6CC4F32D5ADBBA00C4E983 /* PostView.swift */; };
-<<<<<<< HEAD
-<<<<<<< HEAD
-		7DABB5532D5D827C0015FBFD /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DABB5522D5D82640015FBFD /* NotificationsView.swift */; };
-=======
-		2D6CC4F62D5AE3B500C4E983 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6CC4F52D5AE3B500C4E983 /* UploadView.swift */; };
-		2D6CC4F82D5AE4C700C4E983 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6CC4F72D5AE4C700C4E983 /* Post.swift */; };
->>>>>>> ee1e72f80661429fd0cecf69ee9c4fea75cfa4af
-=======
->>>>>>> parent of 9105c20 (notification bell)
+		7D147ED92D6148BD004C187D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D147ED82D6148B6004C187D /* SearchView.swift */; };
+		7D147EDB2D614CCC004C187D /* PostDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D147EDA2D614CC4004C187D /* PostDetailedView.swift */; };
+		7D147EDF2D615AC0004C187D /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D147EDE2D615ABD004C187D /* Upload.swift */; };
+		7DABB5552D5D95820015FBFD /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DABB5542D5D957D0015FBFD /* NotificationsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,15 +55,10 @@
 		2D3B82C82D5A6672007158C7 /* _00DaysUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _00DaysUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2D3B82D52D5A7DA8007158C7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2D6CC4F32D5ADBBA00C4E983 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-<<<<<<< HEAD
-		7DABB5522D5D82640015FBFD /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
-=======
-		2D6CC4F52D5AE3B500C4E983 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
-		2D6CC4F72D5AE4C700C4E983 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
->>>>>>> ee1e72f80661429fd0cecf69ee9c4fea75cfa4af
-=======
->>>>>>> parent of 9105c20 (notification bell)
+		7D147ED82D6148B6004C187D /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		7D147EDA2D614CC4004C187D /* PostDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailedView.swift; sourceTree = "<group>"; };
+		7D147EDE2D615ABD004C187D /* Upload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
+		7DABB5542D5D957D0015FBFD /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,11 +109,13 @@
 		2D3B82A72D5A6671007158C7 /* 100Days */ = {
 			isa = PBXGroup;
 			children = (
+				7D147EDE2D615ABD004C187D /* Upload.swift */,
+				7D147EDA2D614CC4004C187D /* PostDetailedView.swift */,
+				7D147ED82D6148B6004C187D /* SearchView.swift */,
+				7DABB5542D5D957D0015FBFD /* NotificationsView.swift */,
 				2D3B82A82D5A6671007158C7 /* _100DaysApp.swift */,
-				2D6CC4F52D5AE3B500C4E983 /* UploadView.swift */,
 				2D3B82AA2D5A6671007158C7 /* ContentView.swift */,
 				2D3B82D52D5A7DA8007158C7 /* ProfileView.swift */,
-				2D6CC4F72D5AE4C700C4E983 /* Post.swift */,
 				2D6CC4F32D5ADBBA00C4E983 /* PostView.swift */,
 				2D3B82AC2D5A6671007158C7 /* Item.swift */,
 				2D3B82AE2D5A6672007158C7 /* Assets.xcassets */,
@@ -288,13 +280,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D147EDF2D615AC0004C187D /* Upload.swift in Sources */,
 				2D3B82D62D5A7DA8007158C7 /* ProfileView.swift in Sources */,
 				2D3B82AB2D5A6671007158C7 /* ContentView.swift in Sources */,
 				2D3B82AD2D5A6671007158C7 /* Item.swift in Sources */,
-				2D6CC4F62D5AE3B500C4E983 /* UploadView.swift in Sources */,
+				7D147ED92D6148BD004C187D /* SearchView.swift in Sources */,
 				2D6CC4F42D5ADBBA00C4E983 /* PostView.swift in Sources */,
-				2D6CC4F82D5AE4C700C4E983 /* Post.swift in Sources */,
 				2D3B82A92D5A6671007158C7 /* _100DaysApp.swift in Sources */,
+				7D147EDB2D614CCC004C187D /* PostDetailedView.swift in Sources */,
+				7DABB5552D5D95820015FBFD /* NotificationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
