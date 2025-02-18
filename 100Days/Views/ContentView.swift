@@ -41,7 +41,7 @@ struct ContentView: View {
                             }
                             .tag(1)
                         
-                        Upload()
+                        UploadView()
                             .tabItem {
                                 Image(systemName: "plus.app.fill")
                                 Text("Upload")
@@ -64,7 +64,7 @@ struct ContentView: View {
                         .foregroundColor(.black)
                 }
             }
-            .background(Color.white) // Ensures navigation bar is visible
+            .background(Color.white)
         }
     }
 }
@@ -168,8 +168,3 @@ struct VideoPlayerView: View {
     }
 }
 
-struct UserProfile {
-    let username: String
-    let bio: String
-    let rankings: String
-}
