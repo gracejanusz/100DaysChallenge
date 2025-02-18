@@ -23,43 +23,51 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            TabView(selection: $selectedTab) {
-                HomeView(videos: videos)
-                    .tabItem {
-                        Image(systemName: "house.fill")
-                        Text("Home")
+            ZStack {
+                Color.white.ignoresSafeArea(edges: .top) // Background for navigation
+                VStack {
+                    TabView(selection: $selectedTab) {
+                        HomeView(videos: videos)
+                            .tabItem {
+                                Image(systemName: "house.fill")
+                                Text("Home")
+                            }
+                            .tag(0)
+                        
+                        SearchView()
+                            .tabItem {
+                                Image(systemName: "magnifyingglass")
+                                Text("Search")
+                            }
+                            .tag(1)
+                        
+                        Upload()
+                            .tabItem {
+                                Image(systemName: "plus.app.fill")
+                                Text("Upload")
+                            }
+                            .tag(2)
+                        
+                        ProfileView(username: userProfile.username, bio: userProfile.bio, rankings: userProfile.rankings)
+                            .tabItem {
+                                Image(systemName: "person.fill")
+                                Text("Profile")
+                            }
+                            .tag(3)
                     }
-                    .tag(0)
-                
-                SearchView()
-                    .tabItem {
-                        Image(systemName: "magnifyingglass")
-                        Text("Search")
-                    }
-                    .tag(1)
-                
-                Upload()  // Link UploadView to Upload tab
-                    .tabItem {
-                        Image(systemName: "plus.app.fill")
-                        Text("Upload")
-                    }
-                    .tag(2)
-                
-                ProfileView(username: userProfile.username, bio: userProfile.bio, rankings: userProfile.rankings)
-                    .tabItem {
-                        Image(systemName: "person.fill")
-                        Text("Profile")
-                    }
-                    .tag(3)
+                }
             }
-            .onChange(of: selectedTab) { newTab in
-                // Handle tab change logic if necessary
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Sounddrop") // Custom title
+                        .font(.headline)
+                        .foregroundColor(.black)
+                }
             }
+            .background(Color.white) // Ensures navigation bar is visible
         }
-        .edgesIgnoringSafeArea(.all)
     }
 }
-
 struct HomeView: View {
     let videos: [Video]
     let texts = [
@@ -76,16 +84,16 @@ struct HomeView: View {
             VStack {
                 HStack {
                     Spacer()
-                    VStack { // Wrap bell in VStack to push it down
-                        Spacer()
-                            .frame(height: 70)
+                    VStack {
+                        Spacer().frame(height: 70)
                         NavigationLink(destination: NotificationsView()) {
                             Image(systemName: "bell.fill")
                                 .font(.title2)
                                 .padding(.trailing)
                         }
-                        .padding(.bottom, 5) // Move bell lower
-                    }                }
+                        .padding(.bottom, 5)
+                    }
+                }
                 .background(Color.white)
                 
                 ScrollViewReader { proxy in
@@ -124,7 +132,6 @@ struct HomeView: View {
         }
     }
 }
-
 
 struct VideoPlayerView: View {
     let videoURL: String
@@ -165,11 +172,4 @@ struct UserProfile {
     let username: String
     let bio: String
     let rankings: String
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
 }
