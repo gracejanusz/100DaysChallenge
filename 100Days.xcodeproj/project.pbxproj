@@ -50,7 +50,7 @@
 		2D3B82AA2D5A6671007158C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2D3B82AC2D5A6671007158C7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		2D3B82AE2D5A6672007158C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2D3B82B02D5A6672007158C7 /* _100Days.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = _100Days.entitlements; sourceTree = "<group>"; };
+		2D3B82B02D5A6672007158C7 /* _00Days.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = _00Days.entitlements; sourceTree = "<group>"; };
 		2D3B82B22D5A6672007158C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2D3B82B82D5A6672007158C7 /* 100DaysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 100DaysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D3B82BC2D5A6672007158C7 /* _00DaysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _00DaysTests.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 				2D3919AD2D64EF3C00383A51 /* Structs */,
 				2D3B82AC2D5A6671007158C7 /* Item.swift */,
 				2D3B82AE2D5A6672007158C7 /* Assets.xcassets */,
-				2D3B82B02D5A6672007158C7 /* _100Days.entitlements */,
+				2D3B82B02D5A6672007158C7 /* _00Days.entitlements */,
 				2D3B82B12D5A6672007158C7 /* Preview Content */,
 			);
 			path = 100Days;
