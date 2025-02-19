@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UploadView: View {
+struct Upload: View {
     @State private var songTitle: String = ""
     @State private var artistName: String = ""
     @State private var review: String = ""
@@ -78,6 +78,6 @@ struct UploadView: View {
 
 struct UploadView_Previews: PreviewProvider {
     static var previews: some View {
-        UploadView()
+        Upload()
     }
 }
